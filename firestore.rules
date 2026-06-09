@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Users collection: a user can only read or write their own profile
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Rendezvous collection:
+    // - Create: user can create if they are logged in and they are setting themselves as the owner (userId matching their auth uid)
+    // - Read, Update, Delete: user must be logged in and must be the owner of the existing document
+    match /rendezvous/{rdvId} {
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      allow read, update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+    }
+  }
+}
