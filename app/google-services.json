@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "911990038585",
+    "project_id": "git-push--f-origin-main",
+    "storage_bucket": "git-push--f-origin-main.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911990038585:android:05770ac524e15c96e26de8",
+        "android_client_info": {
+          "package_name": "com.example.gestion_rendez_vous"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVUk9Fsr-HH-7eTMQPHlvENLwHzr1mjnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

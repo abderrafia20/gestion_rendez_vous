@@ -10,12 +10,15 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.EventNote
+import androidx.compose.material.icons.automirrored.filled.Sort
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -47,7 +50,7 @@ fun HomeScreen(
     // Request notification permission dynamically on launch for Android 13+ (POST_NOTIFICATIONS)
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
-    ) { isGranted ->
+    ) { _ ->
         // Handle outcome if needed for auditing or preferences updates
     }
 
@@ -159,7 +162,7 @@ fun HomeScreen(
                     modifier = Modifier.weight(1.1f)
                 ) {
                     Icon(
-                        imageVector = if (sortByDoctor) Icons.Default.ArrowDownward else Icons.Default.Sort,
+                        imageVector = if (sortByDoctor) Icons.Default.ArrowDownward else Icons.AutoMirrored.Filled.Sort,
                         contentDescription = null,
                         modifier = Modifier.size(16.dp)
                     )
@@ -180,7 +183,7 @@ fun HomeScreen(
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Icon(
-                            imageVector = Icons.Default.EventNote,
+                            imageVector = Icons.AutoMirrored.Filled.EventNote,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.3f),
                             modifier = Modifier.size(72.dp)
@@ -279,7 +282,7 @@ fun RendezVousCard(rdv: RendezVous, onClick: () -> Unit) {
             }
 
             Spacer(modifier = Modifier.height(12.dp))
-            Divider(color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f))
+            HorizontalDivider(color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f))
             Spacer(modifier = Modifier.height(8.dp))
 
             Row(
